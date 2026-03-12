@@ -28,8 +28,8 @@ CLI tool  ──▶  TOML spec  ──▶  Nushell def blocks
 ## 🚀 Quick Start
 
 ```bash
-git clone git@github.com:barakbl/nu_shell_skills_and_commands.git
-cd nu_shell_skills_and_commands
+git clone git@github.com:barakbl/nulama.git
+cd nulama
 # Slash commands are now available when running Claude Code from this directory
 ```
 
@@ -77,11 +77,11 @@ cp brew.nu ~/.config/nushell/commands/
 
 ```nushell
 # Load a pre-built example straight into your session
-http get https://raw.githubusercontent.com/barakbl/nu_shell_skills_and_commands/main/examples/brew/brew.nu | save brew.nu
+http get https://raw.githubusercontent.com/barakbl/nulama/main/examples/brew/brew.nu | save brew.nu
 source brew.nu
 
 # Or append it to your config in one go
-http get https://raw.githubusercontent.com/barakbl/nu_shell_skills_and_commands/main/examples/brew/brew.nu | save --append $nu.config-path
+http get https://raw.githubusercontent.com/barakbl/nulama/main/examples/brew/brew.nu | save --append $nu.config-path
 ```
 
 ---
