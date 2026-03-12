@@ -1,6 +1,6 @@
-# 🐚 Nu Shell Skills and Commands
+# 🐚 Generate Nushell `def` Commands from POSIX CLI Tools
 
-> Turn any CLI tool into structured [Nushell](https://www.nushell.sh/) commands — automatically, using Claude Code.
+> Point it at any CLI tool — get structured, tab-completing Nushell commands back. Automatically.
 
 ---
 
@@ -33,22 +33,16 @@ cd nu_shell_skills_and_commands
 # Slash commands are now available when running Claude Code from this directory
 ```
 
-### Generate 4 tools in one session
+### Generate and use in two steps
 
 ```
 /nu_create_toml_from_posix_command docker
-/nu_create_toml_from_posix_command brew
-/nu_create_toml_from_posix_command pip3
-/nu_create_toml_from_posix_command kubectl
-```
-
-Then convert them all to Nushell:
-
-```
 /to_nu docker.toml
-/to_nu brew.toml
-/to_nu pip.toml
-/to_nu kubectl.toml
+```
+
+```nushell
+nudocker ps --all | where status =~ "Up"
+nugit log --max-count 10 | where author == "Alice"
 ```
 
 ### Loading into Nushell
