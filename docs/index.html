@@ -473,22 +473,22 @@
 
     <h3>Usage examples</h3>
     <pre><code><span class="cm"># Structured help — filterable table</span>
-nubrew -i | <span class="kw">where</span> section == <span class="str">"Troubleshooting"</span>
+brew -i | <span class="kw">where</span> section == <span class="str">"Troubleshooting"</span>
 
 <span class="cm"># Docker — filter running containers</span>
-nudocker ps --all | <span class="kw">where</span> status =~ <span class="str">"Up"</span>
+docker ps --all | <span class="kw">where</span> status =~ <span class="str">"Up"</span>
 
 <span class="cm"># Docker — sort images by size</span>
-nudocker images | <span class="kw">sort-by</span> size
+docker images | <span class="kw">sort-by</span> size
 
 <span class="cm"># Docker — search error logs</span>
-nudocker logs --tail 50 my-container | <span class="kw">where</span> line =~ <span class="str">"ERROR"</span>
+docker logs --tail 50 my-container | <span class="kw">where</span> line =~ <span class="str">"ERROR"</span>
 
 <span class="cm"># Git — structured log</span>
-nugit log --max-count 10 | <span class="kw">where</span> author == <span class="str">"Alice"</span>
+git log --max-count 10 | <span class="kw">where</span> author == <span class="str">"Alice"</span>
 
 <span class="cm"># pip — outdated packages</span>
-nupip list --outdated | <span class="kw">sort-by</span> version</code></pre>
+pip3 list --outdated | <span class="kw">sort-by</span> version</code></pre>
   </div>
 </section>
 
@@ -623,8 +623,8 @@ sed 's/\$ARGUMENTS/docker/g' .claude/commands/nu_create_toml_from_posix_command.
 <span class="kw">source</span> docker.nu
 
 <span class="cm"># Filter running containers — structured, not text</span>
-nudocker ps --all | <span class="kw">where</span> status =~ <span class="str">"Up"</span>
-nugit log --max-count 10 | <span class="kw">where</span> author == <span class="str">"Alice"</span></code></pre>
+docker ps --all | <span class="kw">where</span> status =~ <span class="str">"Up"</span>
+git log --max-count 10 | <span class="kw">where</span> author == <span class="str">"Alice"</span></code></pre>
         </div>
       </div>
     </div>
