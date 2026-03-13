@@ -320,37 +320,42 @@
     .feature h4 { color: #fff; font-size: 0.9rem; margin-bottom: 0.3rem; }
     .feature p { color: var(--muted); font-size: 0.82rem; margin: 0; }
 
-    /* ── LIVE LIST ── */
-    #live-list { margin-top: 1.5rem; }
-    .live-item {
+    /* ── CARD ACTIONS (version select + .nu button) ── */
+    .card-actions {
       display: flex;
       align-items: center;
-      gap: 1rem;
-      padding: 0.7rem 1rem;
-      border-bottom: 1px solid var(--border);
-      font-size: 0.88rem;
-      transition: background 0.15s;
+      gap: 0.5rem;
+      margin-top: 0.8rem;
     }
-    .live-item:hover { background: var(--bg2); }
-    .live-item .lname { font-family: monospace; color: var(--green); min-width: 90px; }
-    .live-item .lnew  { font-family: monospace; color: var(--accent); min-width: 110px; }
-    .live-item .lver  { color: var(--muted); font-size: 0.78rem; min-width: 60px; }
-    .live-item a { color: var(--muted); font-size: 0.78rem; text-decoration: none; }
-    .live-item a:hover { color: var(--accent); }
-    .older-toggle {
-      background: transparent;
+    .ver-select {
+      flex: 1;
+      background: var(--bg3);
       border: 1px solid var(--border);
       color: var(--muted);
       font-size: 0.72rem;
-      padding: 0.1rem 0.5rem;
+      padding: 0.2rem 0.4rem;
       border-radius: 4px;
       cursor: pointer;
-      margin-left: auto;
-      font-family: inherit;
-      transition: color 0.2s, border-color 0.2s;
+      font-family: monospace;
+      transition: border-color 0.2s, color 0.2s;
     }
-    .older-toggle:hover { color: var(--accent); border-color: var(--accent); }
-    .older-versions .live-item { background: rgba(0,0,0,0.15); }
+    .ver-select:hover, .ver-select:focus {
+      border-color: var(--accent);
+      color: var(--text);
+      outline: none;
+    }
+    .nu-link {
+      font-size: 0.72rem;
+      color: var(--accent);
+      text-decoration: none;
+      background: var(--bg3);
+      border: 1px solid var(--accent2);
+      padding: 0.2rem 0.65rem;
+      border-radius: 4px;
+      transition: background 0.2s, border-color 0.2s, color 0.2s;
+      white-space: nowrap;
+    }
+    .nu-link:hover { background: var(--accent2); color: #fff; border-color: var(--accent); }
 
     /* ── AI TOOL TABS ── */
     .tool-tabs {
@@ -492,85 +497,13 @@ nupip list --outdated | <span class="kw">sort-by</span> version</code></pre>
     <div class="section-label">Ready to Use</div>
     <h2>Nushell Wrappers</h2>
 
-    <div class="examples-grid">
-      <div class="example-card">
-        <div class="icon">🐳</div>
-        <h4>Docker</h4>
-        <div class="nu-name">nudocker</div>
-        <div class="cmds">ps · images · logs · stats · top · events · port · inspect · diff</div>
-        <div class="links">
-          <a href="https://github.com/barakbl/nullama/blob/main/wrappers/docker/docker.toml">TOML</a>
-          <a href="https://github.com/barakbl/nullama/blob/main/wrappers/docker/docker.nu">.nu</a>
-        </div>
-      </div>
-      <div class="example-card">
-        <div class="icon">🍺</div>
-        <h4>Homebrew</h4>
-        <div class="nu-name">nubrew</div>
-        <div class="cmds">list · info · search · outdated · deps · services</div>
-        <div class="links">
-          <a href="https://github.com/barakbl/nullama/blob/main/wrappers/brew/brew.toml">TOML</a>
-          <a href="https://github.com/barakbl/nullama/blob/main/wrappers/brew/brew.nu">.nu</a>
-        </div>
-      </div>
-      <div class="example-card">
-        <div class="icon">📦</div>
-        <h4>pip</h4>
-        <div class="nu-name">nupip</div>
-        <div class="cmds">list · show · freeze · install · check</div>
-        <div class="links">
-          <a href="https://github.com/barakbl/nullama/blob/main/wrappers/pip/pip.toml">TOML</a>
-          <a href="https://github.com/barakbl/nullama/blob/main/wrappers/pip/pip3.nu">.nu</a>
-        </div>
-      </div>
-      <div class="example-card">
-        <div class="icon">🐙</div>
-        <h4>Git</h4>
-        <div class="nu-name">nugit</div>
-        <div class="cmds">log · status · branch · diff · remote · stash · tag · show</div>
-        <div class="links">
-          <a href="https://github.com/barakbl/nullama/blob/main/wrappers/git/git.toml">TOML</a>
-          <a href="https://github.com/barakbl/nullama/blob/main/wrappers/git/git.nu">.nu</a>
-        </div>
-      </div>
-      <div class="example-card">
-        <div class="icon">🐍</div>
-        <h4>Python</h4>
-        <div class="nu-name">nupython</div>
-        <div class="cmds">version · eval · module</div>
-        <div class="links">
-          <a href="https://github.com/barakbl/nullama/blob/main/wrappers/python/python.toml">TOML</a>
-          <a href="https://github.com/barakbl/nullama/blob/main/wrappers/python/python3.nu">.nu</a>
-        </div>
-      </div>
-      <div class="example-card">
-        <div class="icon">🦀</div>
-        <h4>ZeroClaw</h4>
-        <div class="nu-name">nuzero</div>
-        <div class="cmds">status · providers · models · memory · doctor · config</div>
-        <div class="links">
-          <a href="https://github.com/barakbl/nullama/blob/main/wrappers/zeroclaw/zeroclaw.toml">TOML</a>
-          <a href="https://github.com/barakbl/nullama/blob/main/wrappers/zeroclaw/zeroclaw.nu">.nu</a>
-        </div>
-      </div>
-      <div class="example-card">
-        <div class="icon">📷</div>
-        <h4>OpenFang</h4>
-        <div class="nu-name">nufang</div>
-        <div class="cmds">status · agent · skill · channel · sessions · logs · health</div>
-        <div class="links">
-          <a href="https://github.com/barakbl/nullama/blob/main/wrappers/openfang/openfang.toml">TOML</a>
-          <a href="https://github.com/barakbl/nullama/blob/main/wrappers/openfang/openfang.nu">.nu</a>
-        </div>
-      </div>
+    <div id="wrappers-grid" class="examples-grid">
+      <div style="color:var(--muted);font-size:0.85rem;">Loading…</div>
     </div>
 
     <h3>Load any wrapper — no clone needed</h3>
-    <pre><code>http get https://raw.githubusercontent.com/barakbl/nullama/main/wrappers/brew/brew.nu | save brew.nu
+    <pre><code>http get https://raw.githubusercontent.com/barakbl/nullama/main/wrappers/brew/5.1.0/brew.nu | save brew.nu
 <span class="kw">source</span> brew.nu</code></pre>
-
-    <h3>All wrappers — live from list.json</h3>
-    <div id="live-list"><div style="color:var(--muted);font-size:0.85rem;">Loading…</div></div>
   </div>
 </section>
 
@@ -736,46 +669,52 @@ nugit log --max-count 10 | <span class="kw">where</span> author == <span class="
     document.getElementById(id).classList.add('active');
   }
 
+  const TOOL_ICONS = {
+    docker: '🐳', brew: '🍺', pip3: '📦', npm: '🟢',
+    git: '🐙', python3: '🐍', zeroclaw: '🦀', openfang: '📷'
+  };
+
+  function blobToRaw(url) {
+    return url
+      .replace('https://github.com/', 'https://raw.githubusercontent.com/')
+      .replace('/blob/', '/');
+  }
+
+  function updateNuLink(selectId, linkId) {
+    document.getElementById(linkId).href = document.getElementById(selectId).value;
+  }
+
   fetch('list.json')
     .then(r => r.json())
     .then(data => {
-      const el = document.getElementById('live-list');
-      el.innerHTML = data.map((d, i) => {
-        const latest = d.versions[0] || {};
-        const older  = d.versions.slice(1);
-        const olderId = `older-${i}`;
+      const grid = document.getElementById('wrappers-grid');
+      grid.innerHTML = data.map((d, i) => {
+        const icon    = TOOL_ICONS[d.cli_command] || '🔧';
+        const latest  = d.versions[0] || {};
+        const rawLatest = blobToRaw(latest.url || '#');
+        const selectId  = `ver-sel-${i}`;
+        const linkId    = `ver-nu-${i}`;
+        const options   = d.versions.map((v, vi) =>
+          `<option value="${blobToRaw(v.url)}"${vi === 0 ? ' selected' : ''}>v${v.cli_version}</option>`
+        ).join('');
         return `
-        <div class="live-item">
-          <span class="lname">${d.cli_command}</span>
-          <span class="lnew">${d.cli_new_command}</span>
-          <span class="lver">v${latest.cli_version || '—'}</span>
-          ${latest.url ? `<a href="${latest.url}" target="_blank">view .nu ↗</a>` : ''}
-          ${older.length ? `<button class="older-toggle" onclick="toggleOlder('${olderId}')">+${older.length} older</button>` : ''}
-        </div>
-        ${older.length ? `
-        <div id="${olderId}" class="older-versions" style="display:none;">
-          ${older.map(v => `
-          <div class="live-item older">
-            <span class="lname" style="opacity:0"></span>
-            <span class="lnew" style="color:var(--muted)">${d.cli_new_command}</span>
-            <span class="lver">v${v.cli_version || '—'}</span>
-            ${v.url ? `<a href="${v.url}" target="_blank">view .nu ↗</a>` : ''}
-          </div>`).join('')}
-        </div>` : ''}`;
+          <div class="example-card">
+            <div class="icon">${icon}</div>
+            <h4>${d.cli_command}</h4>
+            <div class="nu-name">${d.cli_new_command}</div>
+            <div class="card-actions">
+              <select class="ver-select" id="${selectId}" onchange="updateNuLink('${selectId}','${linkId}')">
+                ${options}
+              </select>
+              <a class="nu-link" id="${linkId}" href="${rawLatest}" target="_blank" download>.nu ↓</a>
+            </div>
+          </div>`;
       }).join('');
     })
     .catch(() => {
-      document.getElementById('live-list').innerHTML =
+      document.getElementById('wrappers-grid').innerHTML =
         '<div style="color:var(--muted);font-size:0.85rem;">Could not load list.json</div>';
     });
-
-  function toggleOlder(id) {
-    const el = document.getElementById(id);
-    const btn = el.previousElementSibling.querySelector('.older-toggle');
-    const visible = el.style.display !== 'none';
-    el.style.display = visible ? 'none' : 'block';
-    btn.textContent = visible ? btn.textContent.replace('▲','').trim() + '' : '▲ hide';
-  }
 </script>
 </body>
 </html>
