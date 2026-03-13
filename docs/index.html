@@ -403,19 +403,78 @@
 <!-- NAV -->
 <nav>
   <a class="logo" href="#">⚡ Nullama</a>
+  <a href="#features">Features</a>
   <a href="#wrappers">Ready to Use</a>
   <a href="#quickstart">Quick Start</a>
   <a href="#commands">Commands</a>
-  <a href="#features">Features</a>
   <a class="gh-link" href="https://github.com/barakbl/nullama" target="_blank">GitHub ↗</a>
 </nav>
+
+<!-- FEATURES -->
+<section id="features" style="padding-top: 3rem;">
+  <div class="container">
+    <div class="section-label">What You Get</div>
+    <h2>Features</h2>
+    <p>Drop-in Nushell commands for popular CLI tools — structured output, tab completion, streaming. No setup required.</p>
+    <div class="features">
+      <div class="feature">
+        <div class="feat-icon">⌨️</div>
+        <h4>Tab Completion</h4>
+        <p>Native Nushell <code>def</code> blocks give automatic tab completion for all subcommands and flags. No scripts to install.</p>
+      </div>
+      <div class="feature">
+        <div class="feat-icon">📊</div>
+        <h4>Structured Output</h4>
+        <p>Tabular detection, key-value parsing, JSON, and line-oriented strategies turn raw text into real records.</p>
+      </div>
+      <div class="feature">
+        <div class="feat-icon">🌊</div>
+        <h4>Streaming Mode</h4>
+        <p>Follow flags stream raw output; non-follow calls parse into tables. Works with <code>docker logs -f</code> and more.</p>
+      </div>
+      <div class="feature">
+        <div class="feat-icon">🔒</div>
+        <h4>Null-safe Capture</h4>
+        <p>Safe <code>complete</code> access with default fallbacks and empty-output guards prevents runtime errors.</p>
+      </div>
+      <div class="feature">
+        <div class="feat-icon">🏷️</div>
+        <h4>Header Sanitization</h4>
+        <p><code>CONTAINER ID</code> becomes <code>container_id</code> automatically — ready for Nushell pipelines.</p>
+      </div>
+      <div class="feature">
+        <div class="feat-icon">📋</div>
+        <h4>Structured Help</h4>
+        <p>Every wrapper exposes <code>--info (-i)</code> that returns the tool's help as a filterable table.</p>
+      </div>
+    </div>
+
+    <h3>Usage examples</h3>
+    <pre><code><span class="cm"># Structured help — filterable table</span>
+nubrew -i | <span class="kw">where</span> section == <span class="str">"Troubleshooting"</span>
+
+<span class="cm"># Docker — filter running containers</span>
+nudocker ps --all | <span class="kw">where</span> status =~ <span class="str">"Up"</span>
+
+<span class="cm"># Docker — sort images by size</span>
+nudocker images | <span class="kw">sort-by</span> size
+
+<span class="cm"># Docker — search error logs</span>
+nudocker logs --tail 50 my-container | <span class="kw">where</span> line =~ <span class="str">"ERROR"</span>
+
+<span class="cm"># Git — structured log</span>
+nugit log --max-count 10 | <span class="kw">where</span> author == <span class="str">"Alice"</span>
+
+<span class="cm"># pip — outdated packages</span>
+nupip list --outdated | <span class="kw">sort-by</span> version</code></pre>
+  </div>
+</section>
 
 <!-- READY TO USE -->
 <section id="wrappers" style="padding-top: 3rem;">
   <div class="container">
     <div class="section-label">Ready to Use</div>
     <h2>Nushell Wrappers</h2>
-    <p>Drop-in Nushell commands for popular CLI tools — structured output, tab completion, streaming. No setup required.</p>
 
     <div class="examples-grid">
       <div class="example-card">
@@ -639,65 +698,6 @@ nugit log --max-count 10 | <span class="kw">where</span> author == <span class="
       <p>Reads a TOML spec and generates Nushell <code>def</code> blocks with structured output parsing, tab completion, and streaming support.</p>
       <p>If the TOML doesn't exist yet, <code>/to_nu</code> will offer to create it automatically.</p>
     </div>
-  </div>
-</section>
-
-<!-- FEATURES -->
-<section id="features">
-  <div class="container">
-    <div class="section-label">What You Get</div>
-    <h2>Features</h2>
-    <div class="features">
-      <div class="feature">
-        <div class="feat-icon">⌨️</div>
-        <h4>Tab Completion</h4>
-        <p>Native Nushell <code>def</code> blocks give automatic tab completion for all subcommands and flags. No scripts to install.</p>
-      </div>
-      <div class="feature">
-        <div class="feat-icon">📊</div>
-        <h4>Structured Output</h4>
-        <p>Tabular detection, key-value parsing, JSON, and line-oriented strategies turn raw text into real records.</p>
-      </div>
-      <div class="feature">
-        <div class="feat-icon">🌊</div>
-        <h4>Streaming Mode</h4>
-        <p>Follow flags stream raw output; non-follow calls parse into tables. Works with <code>docker logs -f</code> and more.</p>
-      </div>
-      <div class="feature">
-        <div class="feat-icon">🔒</div>
-        <h4>Null-safe Capture</h4>
-        <p>Safe <code>complete</code> access with default fallbacks and empty-output guards prevents runtime errors.</p>
-      </div>
-      <div class="feature">
-        <div class="feat-icon">🏷️</div>
-        <h4>Header Sanitization</h4>
-        <p><code>CONTAINER ID</code> becomes <code>container_id</code> automatically — ready for Nushell pipelines.</p>
-      </div>
-      <div class="feature">
-        <div class="feat-icon">📋</div>
-        <h4>Structured Help</h4>
-        <p>Every wrapper exposes <code>--info (-i)</code> that returns the tool's help as a filterable table.</p>
-      </div>
-    </div>
-
-    <h3>Usage examples</h3>
-    <pre><code><span class="cm"># Structured help — filterable table</span>
-nubrew -i | <span class="kw">where</span> section == <span class="str">"Troubleshooting"</span>
-
-<span class="cm"># Docker — filter running containers</span>
-nudocker ps --all | <span class="kw">where</span> status =~ <span class="str">"Up"</span>
-
-<span class="cm"># Docker — sort images by size</span>
-nudocker images | <span class="kw">sort-by</span> size
-
-<span class="cm"># Docker — search error logs</span>
-nudocker logs --tail 50 my-container | <span class="kw">where</span> line =~ <span class="str">"ERROR"</span>
-
-<span class="cm"># Git — structured log</span>
-nugit log --max-count 10 | <span class="kw">where</span> author == <span class="str">"Alice"</span>
-
-<span class="cm"># pip — outdated packages</span>
-nupip list --outdated | <span class="kw">sort-by</span> version</code></pre>
   </div>
 </section>
 
