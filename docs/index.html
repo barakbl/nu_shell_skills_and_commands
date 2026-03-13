@@ -580,7 +580,30 @@ sed 's/\$ARGUMENTS/docker/g' .claude/commands/nu_create_toml_from_posix_command.
         <div class="step-num">3</div>
         <div class="step-body">
           <h4>Generate Nushell commands from the spec</h4>
-          <pre><code>/to_nu docker.toml</code></pre>
+          <p style="color:var(--muted);font-size:0.85rem;margin:0.3rem 0 0.8rem;">Pick your AI coding assistant:</p>
+          <div class="tool-tabs" role="tablist">
+            <button class="tool-tab active" onclick="switchTab(event,'tab2-cc')" role="tab"><span class="tool-icon">⚡</span>Claude Code</button>
+            <button class="tool-tab" onclick="switchTab(event,'tab2-codex')" role="tab"><span class="tool-icon">🤖</span>Codex</button>
+            <button class="tool-tab" onclick="switchTab(event,'tab2-ollama')" role="tab"><span class="tool-icon">🦙</span>Ollama</button>
+            <button class="tool-tab" onclick="switchTab(event,'tab2-opencode')" role="tab"><span class="tool-icon">🔷</span>OpenCode</button>
+          </div>
+          <div id="tab2-cc" class="tool-panel active">
+            <p>Uses the built-in slash command — reads the TOML and writes the <code>.nu</code> file.</p>
+            <pre><code>/to_nu docker.toml</code></pre>
+          </div>
+          <div id="tab2-codex" class="tool-panel">
+            <p>Pass the prompt file with the TOML path substituted in.</p>
+            <pre><code>codex "$(sed 's/\$ARGUMENTS/docker.toml/g' .claude/commands/to_nu.md)"</code></pre>
+          </div>
+          <div id="tab2-ollama" class="tool-panel">
+            <p>Pipe the prompt into <code>ollama run</code> with any local model.</p>
+            <pre><code>sed 's/\$ARGUMENTS/docker.toml/g' .claude/commands/to_nu.md \
+  | ollama run llama3.2</code></pre>
+          </div>
+          <div id="tab2-opencode" class="tool-panel">
+            <p>OpenCode picks up custom slash commands from <code>.claude/commands/</code> automatically.</p>
+            <pre><code>/to_nu docker.toml</code></pre>
+          </div>
         </div>
       </div>
       <div class="step">
