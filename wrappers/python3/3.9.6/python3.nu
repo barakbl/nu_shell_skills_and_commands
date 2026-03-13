@@ -1,3 +1,6 @@
+# cli_version = "3.9.6"
+# timestamp_created = "2026-03-13"
+
 def python3 [
     --info (-i)             # Show python3 help as structured table
     ...rest: string         # Pass-through args to python3

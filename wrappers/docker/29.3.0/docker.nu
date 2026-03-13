@@ -1,3 +1,6 @@
+# cli_version = "29.3.0"
+# timestamp_created = "2026-03-13"
+
 def docker [
     --info (-i)             # Show docker help as structured table
     ...rest: string         # Pass-through args to docker

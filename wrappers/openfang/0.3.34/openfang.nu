@@ -1,3 +1,6 @@
+# cli_version = "0.3.34"
+# timestamp_created = "2026-03-13"
+
 def openfang [
     --info (-i)             # Show openfang help as structured table
     ...rest: string         # Pass-through args to openfang

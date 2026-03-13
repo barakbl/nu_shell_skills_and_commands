@@ -1,3 +1,6 @@
+# cli_version = "5.1.0"
+# timestamp_created = "2026-03-13"
+
 def brew [
     --info (-i)             # Show brew help as structured table
     ...rest: string         # Pass-through args to brew

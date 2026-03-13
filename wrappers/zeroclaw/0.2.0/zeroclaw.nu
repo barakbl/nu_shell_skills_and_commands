@@ -1,3 +1,6 @@
+# cli_version = "0.2.0"
+# timestamp_created = "2026-03-13"
+
 def zeroclaw [
     --info (-i)             # Show zeroclaw help as structured table
     ...rest: string         # Pass-through args to zeroclaw

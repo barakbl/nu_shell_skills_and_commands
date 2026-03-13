@@ -17,6 +17,8 @@ The file follows this schema:
 ```toml
 cli_command = "tool"            # The CLI tool to wrap
 cli_new_command = "tool"        # Nu command name — defaults to same as cli_command (e.g. "docker", "brew")
+cli_version = "1.2.3"          # Version of the CLI tool at generation time
+timestamp_created = "2026-01-01"  # Date this spec was generated
 
 [[command]]
 args = "subcommand --fixed-flag" # Subcommand + fixed args (required)
@@ -183,7 +185,17 @@ Write the generated `def` blocks to a `.nu` file in the same directory as the in
 wrappers/<cli_command>/<cli_version>/<cli_command>.nu
 ```
 
-Create the directory with `mkdir -p` if it doesn't exist. The file should contain ONLY the generated `def` blocks, one after another, with a blank line between each — no markdown fences, no explanation, no preamble.
+Create the directory with `mkdir -p` if it doesn't exist. The file MUST start with a two-line header comment using the values from the TOML, followed by a blank line, then the `def` blocks:
+
+```
+# cli_version = "<cli_version>"
+# timestamp_created = "<timestamp_created>"
+
+def cli_new_command [
+...
+```
+
+No markdown fences, no explanation, no preamble beyond those two header comment lines.
 
 After writing, tell the user:
 > Created `wrappers/<cli_command>/<cli_version>/<cli_command>.nu`.

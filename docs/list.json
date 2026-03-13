@@ -4,8 +4,8 @@
     "cli_new_command": "brew",
     "versions": [
       {
-        "cli_version": "",
-        "timestamp_created": "",
+        "cli_version": "5.1.0",
+        "timestamp_created": "2026-03-13",
         "url": "https://github.com/barakbl/nullama/blob/main/wrappers/brew/5.1.0/brew.nu"
       }
     ]
@@ -15,8 +15,8 @@
     "cli_new_command": "docker",
     "versions": [
       {
-        "cli_version": "",
-        "timestamp_created": "",
+        "cli_version": "29.3.0",
+        "timestamp_created": "2026-03-13",
         "url": "https://github.com/barakbl/nullama/blob/main/wrappers/docker/29.3.0/docker.nu"
       }
     ]
@@ -26,8 +26,8 @@
     "cli_new_command": "npm",
     "versions": [
       {
-        "cli_version": "",
-        "timestamp_created": "",
+        "cli_version": "11.9.0",
+        "timestamp_created": "2026-03-13",
         "url": "https://github.com/barakbl/nullama/blob/main/wrappers/npm/11.9.0/npm.nu"
       }
     ]
@@ -37,8 +37,8 @@
     "cli_new_command": "openfang",
     "versions": [
       {
-        "cli_version": "",
-        "timestamp_created": "",
+        "cli_version": "0.3.34",
+        "timestamp_created": "2026-03-13",
         "url": "https://github.com/barakbl/nullama/blob/main/wrappers/openfang/0.3.34/openfang.nu"
       }
     ]
@@ -48,8 +48,8 @@
     "cli_new_command": "pip3",
     "versions": [
       {
-        "cli_version": "",
-        "timestamp_created": "",
+        "cli_version": "21.2.4",
+        "timestamp_created": "2026-03-13",
         "url": "https://github.com/barakbl/nullama/blob/main/wrappers/pip3/21.2.4/pip3.nu"
       }
     ]
@@ -59,8 +59,8 @@
     "cli_new_command": "python3",
     "versions": [
       {
-        "cli_version": "",
-        "timestamp_created": "",
+        "cli_version": "3.9.6",
+        "timestamp_created": "2026-03-13",
         "url": "https://github.com/barakbl/nullama/blob/main/wrappers/python3/3.9.6/python3.nu"
       }
     ]
@@ -70,8 +70,8 @@
     "cli_new_command": "zeroclaw",
     "versions": [
       {
-        "cli_version": "",
-        "timestamp_created": "",
+        "cli_version": "0.2.0",
+        "timestamp_created": "2026-03-13",
         "url": "https://github.com/barakbl/nullama/blob/main/wrappers/zeroclaw/0.2.0/zeroclaw.nu"
       }
     ]

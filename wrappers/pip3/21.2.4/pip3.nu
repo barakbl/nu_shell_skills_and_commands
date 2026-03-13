@@ -1,3 +1,6 @@
+# cli_version = "21.2.4"
+# timestamp_created = "2026-03-13"
+
 def pip3 [
     --info (-i)             # Show pip3 help as structured table
     ...rest: string         # Pass-through args to pip3

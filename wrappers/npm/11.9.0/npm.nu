@@ -1,3 +1,6 @@
+# cli_version = "11.9.0"
+# timestamp_created = "2026-03-13"
+
 def npm [
     --info (-i)             # Show npm help as structured table
     ...rest: string         # Pass-through args to npm

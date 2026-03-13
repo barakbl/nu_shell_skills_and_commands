@@ -1,5 +1,7 @@
 cli_command = "openfang"
 cli_new_command = "openfang"
+cli_version = "0.3.34"
+timestamp_created = "2026-03-13"
 
 [[command]]
 args = "status"
