@@ -259,37 +259,34 @@
     /* ── EXAMPLES TABLE ── */
     .examples-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-      gap: 1rem;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 0.7rem;
       margin-top: 1.5rem;
     }
     .example-card {
       background: var(--bg2);
       border: 1px solid var(--border);
-      border-radius: 12px;
-      padding: 1.2rem 1.4rem;
+      border-radius: 10px;
+      padding: 0.75rem 1rem;
       transition: border-color 0.2s, box-shadow 0.2s;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.7rem;
     }
     .example-card:hover {
       border-color: var(--accent2);
-      box-shadow: 0 0 20px rgba(0,100,200,0.15);
+      box-shadow: 0 0 16px rgba(0,100,200,0.15);
     }
-    .example-card .icon { font-size: 1.6rem; margin-bottom: 0.5rem; }
-    .example-card h4 { color: #fff; font-size: 0.95rem; margin-bottom: 0.3rem; }
-    .example-card .nu-name { color: var(--accent); font-family: monospace; font-size: 0.85rem; }
-    .example-card .cmds { color: var(--muted); font-size: 0.78rem; margin-top: 0.5rem; }
-    .example-card .links { margin-top: 0.8rem; display: flex; gap: 0.5rem; }
-    .example-card .links a {
-      font-size: 0.72rem;
-      color: var(--muted);
-      text-decoration: none;
-      background: var(--bg3);
-      border: 1px solid var(--border);
-      padding: 0.15rem 0.5rem;
-      border-radius: 4px;
-      transition: color 0.2s, border-color 0.2s;
+    .card-left {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      min-width: 0;
     }
-    .example-card .links a:hover { color: var(--accent); border-color: var(--accent); }
+    .card-left .icon { font-size: 1.25rem; flex-shrink: 0; }
+    .card-left h4 { color: #fff; font-size: 0.88rem; margin: 0 0 0.1rem; white-space: nowrap; }
+    .card-left .nu-name { color: var(--accent); font-family: monospace; font-size: 0.75rem; }
 
     /* ── COMMANDS ── */
     .cmd-block {
@@ -323,17 +320,19 @@
     /* ── CARD ACTIONS (version select + .nu button) ── */
     .card-actions {
       display: flex;
-      align-items: center;
-      gap: 0.5rem;
-      margin-top: 0.8rem;
+      flex-direction: column;
+      align-items: stretch;
+      gap: 0.3rem;
+      flex-shrink: 0;
+      width: 80px;
     }
     .ver-select {
-      flex: 1;
+      width: 100%;
       background: var(--bg3);
       border: 1px solid var(--border);
       color: var(--muted);
-      font-size: 0.72rem;
-      padding: 0.2rem 0.4rem;
+      font-size: 0.68rem;
+      padding: 0.18rem 0.3rem;
       border-radius: 4px;
       cursor: pointer;
       font-family: monospace;
@@ -345,12 +344,14 @@
       outline: none;
     }
     .nu-link {
-      font-size: 0.72rem;
+      width: 100%;
+      text-align: center;
+      font-size: 0.68rem;
       color: var(--accent);
       text-decoration: none;
       background: var(--bg3);
       border: 1px solid var(--accent2);
-      padding: 0.2rem 0.65rem;
+      padding: 0.18rem 0;
       border-radius: 4px;
       transition: background 0.2s, border-color 0.2s, color 0.2s;
       white-space: nowrap;
@@ -699,9 +700,13 @@ nugit log --max-count 10 | <span class="kw">where</span> author == <span class="
         ).join('');
         return `
           <div class="example-card">
-            <div class="icon">${icon}</div>
-            <h4>${d.cli_command}</h4>
-            <div class="nu-name">${d.cli_new_command}</div>
+            <div class="card-left">
+              <div class="icon">${icon}</div>
+              <div>
+                <h4>${d.cli_command}</h4>
+                <div class="nu-name">${d.cli_new_command}</div>
+              </div>
+            </div>
             <div class="card-actions">
               <select class="ver-select" id="${selectId}" onchange="updateNuLink('${selectId}','${linkId}')">
                 ${options}
